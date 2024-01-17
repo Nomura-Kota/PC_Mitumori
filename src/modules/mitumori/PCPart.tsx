@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button, Modal } from '@mui/material';
-import { modalStyle } from './PCPart.styles';
+import { modalStyle, partBoxStyle, partListStyle } from './PCPart.styles';
 import { PartDetail, PCPartProps } from './types';
 import { PCPartsData } from './PCPartsData';
 
@@ -30,7 +30,7 @@ import { PCPartsData } from './PCPartsData';
   
     return (
       <>
-        <Box display="flex" justifyContent="space-between" alignItems="center" p={2}>
+        <Box sx={partBoxStyle}>
           <Typography variant="subtitle1">{partName}</Typography>
           <Typography variant="subtitle1">
             {selectedPart ? `${selectedPart.price}円` : '0円'}
@@ -42,9 +42,8 @@ import { PCPartsData } from './PCPartsData';
   
         <Modal open={isModalOpen} onClose={closeModal}>
           <Box sx={modalStyle}>
-            {/* 利用可能な部品のリストを表示し、選択可能にする */}
             {PCPartsData[partName].map((part, index) => (
-              <Box key={index} display="flex" justifyContent="space-between" alignItems="center" marginBottom={2}>
+              <Box key={index} sx={partListStyle}>
                 <Typography variant="subtitle1">
                   {part.name} - {part.price}円
                 </Typography>
@@ -58,4 +57,3 @@ import { PCPartsData } from './PCPartsData';
       </>
     );
   };
-  

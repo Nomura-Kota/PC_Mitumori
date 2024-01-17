@@ -11,3 +11,17 @@ export const modalStyle: SxProps<Theme> = {
   boxShadow: 24,
   p: 4,
 };
+
+export const partBoxStyle: SxProps<Theme> = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  p: 2,
+};
+
+export const partListStyle: SxProps<Theme> = {
+  marginBottom: 2,
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+};
