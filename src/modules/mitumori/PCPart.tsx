@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Button, Modal } from '@mui/material';
+import { Box, Typography, Button, Modal, Grid } from '@mui/material';
 import { modalStyle, partBoxStyle, partListStyle } from './PCPart.styles';
 import { PartDetail, PCPartProps } from './types';
 import { PCPartsData } from './PCPartsData';
@@ -30,7 +30,7 @@ import { PCPartsData } from './PCPartsData';
   
     return (
       <>
-        <Box sx={partBoxStyle}>
+        {/* <Box sx={partBoxStyle}>
           <Typography variant="subtitle1">{partName}</Typography>
           <Typography variant="subtitle1">
             {selectedPart ? `${selectedPart.price}円` : '0円'}
@@ -38,7 +38,23 @@ import { PCPartsData } from './PCPartsData';
           <Button variant="outlined" onClick={openModal}>
             パーツを選択してください
           </Button>
-        </Box>
+        </Box> */}
+
+        <Grid container sx={partBoxStyle}>
+          <Grid item xs={4} sx={{ textAlign: "left"}}>
+            <Typography variant='subtitle1'>{partName}</Typography>
+          </Grid>
+          <Grid item xs={4} sx={{ textAlign: "center"}}>
+            <Typography variant='subtitle1'>
+              {selectedPart ? `${selectedPart.price}円` : "0円"}
+            </Typography>
+          </Grid>
+          <Grid item xs={4} sx={{ display: "flex", justifyContent: "flex-end"}}>
+            <Button variant='outlined' onClick={openModal}>
+              パーツを選択してください
+            </Button>
+          </Grid>
+        </Grid>
   
         <Modal open={isModalOpen} onClose={closeModal}>
           <Box sx={modalStyle}>
