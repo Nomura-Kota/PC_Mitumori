@@ -3,7 +3,6 @@ import { Box, SxProps, Theme } from "@mui/material";
 
 // 使用するコンポートをインポート
 import { Route, Routes } from "react-router-dom";
-import { TopPage } from "./pages/TopPage";
 import { SamplePage } from "./pages/SamplePage";
 import { MitumoriPage } from "./pages/MitumoriPage";
 
